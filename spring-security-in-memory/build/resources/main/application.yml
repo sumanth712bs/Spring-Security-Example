@@ -1,0 +1,14 @@
+server:
+  port: 8080
+
+logging.level.org.springframework.web: DEBUG
+
+spring:
+  application:
+    name: InMemory
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -1,5 +1,4 @@
 plugins {
-    //id 'org.springframework.boot' version '2.1.5.RELEASE'
     id 'java'
 }
 
@@ -15,7 +14,6 @@ repositories {
 }
 
 dependencies {
-  //  testCompile group: 'junit', name: 'junit', version: '4.12'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
@@ -24,7 +22,3 @@ dependencies {
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.1.5.RELEASE'
 
 }
-
-
-
-
