@@ -1,6 +1,7 @@
 plugins {
 	id 'org.springframework.boot' version '2.1.5.RELEASE'
 	id 'java'
+	id 'jacoco'
 }
 
 apply plugin: 'io.spring.dependency-management'
@@ -19,4 +20,36 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.1.5.RELEASE'
 
+}
+
+jacoco {
+	toolVersion = "0.8.3"
+	reportsDir = file("$buildDir/reports/jacoco")
+}
+
+
+jacocoTestReport {
+	group = "Reporting"
+	description = "Generate Jacoco coverage reports after running tests."
+	additionalSourceDirs = files("src/main/java")
+	reports {
+		xml.enabled false
+		csv.enabled false
+		html.destination file("${buildDir}/jacocoHtml")
+	}
+}
+
+test {
+	finalizedBy jacocoTestReport
+}
+
+jacocoTestCoverageVerification {
+	violationRules {
+		rule {
+			limit {
+				minimum = 0
+			}
+		}
+
+	}
 }
